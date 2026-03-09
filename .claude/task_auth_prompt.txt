@@ -1,0 +1,16 @@
+Use the java-backend agent. Review the existing code, then design the authentication and authorization system with the following requirements:
+
+- Roles: USER and ADMIN
+- User self-registration (email + password)
+- Pre-defined admin account (configured via application properties, created on startup if not exists)
+- JWT-based stateless authentication
+- OAuth2 Social Login via Google, GitHub (and extendable to other providers)
+- After OAuth2 login — issue internal JWT token (not rely on provider tokens)
+- Scalable design: adding new OAuth2 providers should require minimal changes
+
+- Configure Swagger UI Security Scheme (springdoc-openapi):
+  - Add Bearer JWT scheme so users can authorize in Swagger UI via the Authorize button
+  - Apply security globally to all endpoints
+  - Mark public endpoints explicitly with @Operation(security = @SecurityRequirement(name = ""))
+
+Write the full implementation plan and code snippets to .claude/task_auth.md in the project root.

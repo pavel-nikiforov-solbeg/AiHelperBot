@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  liquibase:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      embedding:
+        enabled: false
+      init:
+        pull-model-strategy: never
+
+bot:
+  intro-text: "Test intro"
+
+rag:
+  storage:
+    blob:
+      url: ""
+  llm:
+    base-url: http://localhost:9999
+    api-key: test-key
+    model: test/model
+    max-documents: 3
+  guide:
+    guide-url: http://test.com/guide
+    chunk-size: 100
+    overlap: 10
+    pages:
+      start: 1
+      glossary: 1
+      support: 2
+      inbox: 3
+      remind-submission: 4
+      gp-employee: 5
+      gp-manager: 6
+  validation:
+    quick-filter:
+      min-length: 2
+    language-detector:
+      accepted-languages: ENGLISH
+      min-confidence: 0.5
+      short-input-threshold: 10
+    domain-checker:
+      max-search-results: 1
+      min-score: 0.5

@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# Build output
+target/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local vector store cache
+sas-rag/

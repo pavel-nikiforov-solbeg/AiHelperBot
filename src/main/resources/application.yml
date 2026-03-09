@@ -1,0 +1,62 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ai_helper_bot_db
+    username: bot_user
+    password: ${DB_PASSWORD}
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      embedding:
+        enabled: true
+        options:
+          model: nomic-embed-text
+      init:
+        pull-model-strategy: never
+
+bot:
+  intro-text: "Hello! I'm the AI Helper Bot. I can help you with your Performance Management questions."
+
+rag:
+  storage:
+    blob:
+      url: ${AZURE_BLOB_URL:}
+  llm:
+    base-url: ${LLM_BASE_URL:https://openrouter.ai/api/v1}
+    api-key: ${OPEN_ROUTER_API_KEY}
+    model: ${LLM_MODEL:qwen/qwen3-vl-30b-a3b-thinking}
+    temperature: 0.3
+    max-tokens: 1024
+    max-documents: 5
+    http-referer: ${LLM_HTTP_REFERER:}
+    app-title: AiHelperBot
+    unsatisfactory-phrases:
+      - "not explicitly defined"
+      - "not specified"
+  guide:
+    guide-url: ${GUIDE_URL:}
+    chunk-size: 1500
+    overlap: 200
+    pages:
+      start: 1
+      glossary: 3
+      support: 2
+      inbox: 10
+      remind-submission: 15
+      gp-employee: 20
+      gp-manager: 25
+  validation:
+    quick-filter:
+      min-length: 2
+    language-detector:
+      accepted-languages: ENGLISH
+      min-confidence: 0.5
+      short-input-threshold: 10
+    domain-checker:
+      max-search-results: 1
+      min-score: 0.5

@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-bot-feedback-seq
+      author: migrations
+      changes:
+        - createSequence:
+            sequenceName: bot_feedback_seq
+            startValue: 1
+            incrementBy: 50
+
+  - changeSet:
+      id: 001-create-bot-feedback-table
+      author: migrations
+      changes:
+        - createTable:
+            tableName: bot_feedback
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: question
+                  type: VARCHAR(4000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: answer
+                  type: VARCHAR(10000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bot_feedback_type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: employee_email
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw compile:*)",
+      "Bash(cmd:*)",
+      "Bash(mvn compile:*)",
+      "Bash(\"/c/Users/PavelNikiforov/.m2/wrapper/dists/apache-maven-3.9.11-bin/6mqf5t809d9geo83kj4ttckcbc/apache-maven-3.9.11/bin/mvn\" compile:*)",
+      "Bash(\"/c/Users/PavelNikiforov/.m2/wrapper/dists/apache-maven-3.9.11-bin/6mqf5t809d9geo83kj4ttckcbc/apache-maven-3.9.11/bin/mvn\" test:*)",
+      "Bash(/c/Users/PavelNikiforov/.m2/wrapper/dists/apache-maven-3.9.11-bin/6mqf5t809d9geo83kj4ttckcbc/apache-maven-3.9.11/bin/mvn compile:*)",
+      "Bash(/c/Users/PavelNikiforov/.m2/wrapper/dists/apache-maven-3.9.11-bin/6mqf5t809d9geo83kj4ttckcbc/apache-maven-3.9.11/bin/mvn test:*)",
+      "Bash(mvnw.cmd test:*)",
+      "Bash(./mvnw.cmd test:*)",
+      "Bash(powershell:*)"
+    ]
+  }
+}
